@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav {
+    height: 80px;
+}
+
+tr {
+    text-align: center;
+    font-size: 20px;
+}
+
+.mask {
+    visibility: hidden;
+}
+
+.visibl {
+    visibility: inherit;
+}
+
+#musicApi {
+    z-index: 2;
+}

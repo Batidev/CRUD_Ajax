@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Projet JQuery Ajax API</title>
+</head>
+
+<body>
+    <!-- En-tête avec nav -->
+    <header>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">Mes API(s)</li class="nav-item">
+            <li class="nav-item">
+                <a id="home" class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Acceuil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Gestion des activités</a>
+            </li>
+            <li class="nav-item">
+                <a id="beer" class="nav-link" href="#bieronomy">Gestion des bières</a>
+            </li>
+            <li class="nav-item">
+                <a id="music" class="nav-link" href="#musicApi">Gestion des musiques</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Gestion des voitures</a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- page bières -->
+    <main id="bieronomy" class="mask">
+        <section>
+            <table id="parent" class="table">
+                <thead>
+                    <tr id="tab">
+                        <th scope="col" id="id">#</th>
+                        <th scope="col" id="name">Noms</th>
+                        <th scope="col" id="details" data-toggle="modal" data-target="#exampleModal">Voir le détail</th>
+                        <th><button onclick="envoyer()" type="button" class="btn btn-info">Ajouter</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Modal bière -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <section id="formulaire ">
+                            <div>Détails</div>
+                            <input id="idHidden" type="hidden">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Nom</span>
+                                </div>
+                                <input id="named" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Degré</span>
+                                </div>
+                                <input id="degre" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Prix en €</span>
+                                </div>
+                                <input id="price" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Couleur</span>
+                                </div>
+                                <input id="color" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Amertume</span>
+                                </div>
+                                <input id="amertume" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Pays</span>
+                                </div>
+                                <input id="state" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info" id="append">Ajouter</button type="button">
+                                <button type="button" class="btn btn-info" id="update">Modifier</button type="button">
+                        <button type="button" class="btn btn-info" id="remove">Supprimer</button type="button">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- page musique -->
+    <main id="musicApi" class="mask">
+        <section>
+            <table id="father" class="table">
+                <thead>
+                    <tr id="tabMusic">
+                        <th scope="col" id="idMusic">#</th>
+                        <th scope="col" id="nameMusic">Artistes</th>
+                        <th scope="col" id="nameMusic">Titres</th>
+                        <th scope="col" id="detailsMusic" data-toggle="modal" data-target="#exampleModal">Voir le détail</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Modal musique -->
+        <div class="modal fade" id="modalMusic" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <section id="formulaireMusic ">
+                            <div>Détails</div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Artiste</span>
+                                </div>
+                                <input id="idMu" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Artiste</span>
+                                </div>
+                                <input id="artist" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1Music">Titre</span>
+                                </div>
+                                <input id="titre" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1Music">Genre</span>
+                                </div>
+                                <input id="genre" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Date</span>
+                                </div>
+                                <input id="date" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Temps</span>
+                                </div>
+                                <input id="time" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info" id="appendMusic">Ajouter</button type="button">
+                        <button type="button" class="btn btn-info" id="updateMusic">Modifier</button type="button">
+                        <button type="button" class="btn btn-info" id="removeMusic">Supprimer</button type="button">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="./js/jquery.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="./js/script.js "></script>
+    <script src="./js/scriptMusic.js"></script>
+</body>
+
+</html>
